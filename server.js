@@ -41,6 +41,17 @@ app.get('/captiansLog/new', (req, res) => {
 })
 
 // DELETE
+app.delete('/captiansLog/:id', (req, res) => {
+    Log.findByIdAndDelete(req.params.id, (err, deletedLog) => {
+      if (err) {
+        console.error(err)
+        res.status(400).send(err)
+      } else {
+        res.redirect('/captainsLog')
+      }
+    })
+  })
+
 
 // UPDATE
 app.put('/captainsLog/:id', (req, res) => {
@@ -71,6 +82,18 @@ app.post('/captainsLog', (req, res) => {
 // EDIT
 
 // SHOW -- READ -- GET
+app.get('/captainsLog/:id', (req, res) => {
+    Log.findById(req.params.id, (err, foundLog) => {
+      if (err) {
+        console.error(err)
+        res.status(400).send(err)
+      } else {
+        res.render('captainsLog/Show', {
+          Log: foundLog
+        })
+      }
+    })
+  })
 
 /* End Routes */
 
