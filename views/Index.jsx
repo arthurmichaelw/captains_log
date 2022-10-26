@@ -9,7 +9,7 @@ class Index extends React.Component {
       <Default title='Captains Log Index Page'>
         <h1>Captain's Log Index Page</h1>
         <nav>
-          <a href='/captiansLog/new'>Create a New Log, Cap'n</a>
+          <a href='/logs/new'>Create a New Log, Cap'n</a>
         </nav>
         <ul>
           {
@@ -17,7 +17,7 @@ class Index extends React.Component {
                           const { name, entry, shipIsBroken, _id } = log
                           return (
                             <li key={_id}>
-                              <a href={`/captainsLog/${_id}`}>
+                              <a href={`/logs/${_id}`}>
                                 {name}
                               </a> Entry{entry}
 
@@ -28,8 +28,9 @@ class Index extends React.Component {
                                           : 'The Ship is not broken'
                                     }
                               <br />
-                              <form method='POST' action={`/captiansLog/${_id}?_method=DELETE`}>
+                              <form method='EDIT'>
                                 <input type='submit' value={`Delete ${name}`} />
+                                {/* </form><form method='POST' action={`/logs/${_id}?_method=DELETE`}> */}
                               </form>
                             </li>
                           )

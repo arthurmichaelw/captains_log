@@ -8,8 +8,8 @@ class Show extends React.Component {
     const capName = name[0].toUpperCase() + name.substring(1)
     return (
       <Default title={`${capName} Show Page`} log={this.props.log}>
-        <p>{capName} /: {entry} and {shipIsBroken ? 'The Ship is Broken' : 'The Ship is Broken'}</p>
-        <a href={`/captainsLog/Index`}></a>
+        <p>{capName} /: {entry} and {shipIsBroken ? 'The Ship is Broken' : 'The Ship is not Broken'}</p>
+        <a href={`/logs/Index`}></a>
       </Default>
     )
   }

@@ -80,6 +80,18 @@ app.post('/logs', (req, res) => {
 })
 
 // EDIT
+app.get('/logs/:id/edit', (req, res) => {
+    Log.findById(req.params.id, (err, foundFruit) => {
+      if (err) {
+        console.error(err)
+        res.status(400).send(err)
+      } else {
+        res.render('logs/Edit', {
+          Log: foundLog
+        })
+      }
+    })
+  })
 
 // SHOW -- READ -- GET
 app.get('/logs/:id', (req, res) => {
