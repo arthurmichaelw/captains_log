@@ -47,21 +47,29 @@ app.get('/captiansLog/new', (req, res) => {
 
 // UPDATE
 app.put('/captainsLog/:id', (req, res) => {
-    req.body.shipIsBroken === 'on' || req.body.readyToEat === true ? req.body.readyToEat = true : req.body.readyToEat = false
-    Fruit.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedFruit) => {
+    req.body.shipIsBroken === 'on' || req.body.readyToEat === true ? req.body.shipIsBroken = true : req.body.shipIsBroken = false
+    Log.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedLog) => {
       if (err) {
         console.error(err)
         res.status(400).send(err)
       } else {
-        res.redirect(`/fruits/${updatedFruit._id}`)
+        res.redirect(`/captainsLog/${updatedLog._id}`)
       }
     })
   })
 
 // CREATE
 app.post('/captainsLog', (req, res) => {
-    res.send('received')
-})
+    req.body.shipIsBroken === 'on' ? req.body.shipIsBroken = true : req.body.shipIsBroken = false
+    Log.create(req.body, (err, createdLog) => {
+      if (err) {
+        console.error(err)
+        res.status(400).send(err)
+      } else {
+        res.redirect(`/captainsLog/${createdLog._id}`)
+      }
+    })
+  })
 
 // EDIT
 
