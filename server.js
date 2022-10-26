@@ -31,50 +31,50 @@ mongoose.connection.once('open', () => {
 /* Start Routes */
 
 // INDEX -- READ -- GET
-app.get('/captainsLog', (req, res) => {
-  res.render('captainsLog/Index')
+app.get('/logs/', (req, res) => {
+  res.render('logs/Index')
 })
 
 // NEW
-app.get('/captiansLog/new', (req, res) => {
-  res.render('captainsLog/New')
+app.get('/logs/new', (req, res) => {
+  res.render('logs/New')
 })
 
 // DELETE
-app.delete('/captiansLog/:id', (req, res) => {
+app.delete('/logs/:id', (req, res) => {
     Log.findByIdAndDelete(req.params.id, (err, deletedLog) => {
       if (err) {
         console.error(err)
         res.status(400).send(err)
       } else {
-        res.redirect('/captainsLog')
+        res.redirect('/logs')
       }
     })
   })
 
 
 // UPDATE
-app.put('/captainsLog/:id', (req, res) => {
-  req.body.shipIsBroken === 'on' || req.body.readyToEat === true ? req.body.shipIsBroken = true : req.body.shipIsBroken = false
+app.put('/logs/:id', (req, res) => {
+  req.body.shipIsBroken === 'on' || req.body.shipIsBroken === true ? req.body.shipIsBroken = true : req.body.shipIsBroken = false
   Log.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedLog) => {
     if (err) {
       console.error(err)
       res.status(400).send(err)
     } else {
-      res.redirect(`/captainsLog/${updatedLog._id}`)
+      res.redirect(`/logs/${updatedLog._id}`)
     }
   })
 })
 
 // CREATE
-app.post('/captainsLog', (req, res) => {
+app.post('/logs', (req, res) => {
   req.body.shipIsBroken === 'on' ? req.body.shipIsBroken = true : req.body.shipIsBroken = false
   Log.create(req.body, (err, createdLog) => {
     if (err) {
       console.error(err)
       res.status(400).send(err)
     } else {
-      res.redirect(`/captainsLog/${createdLog._id}`)
+      res.redirect(`/logs/${createdLog._id}`)
     }
   })
 })
@@ -82,13 +82,13 @@ app.post('/captainsLog', (req, res) => {
 // EDIT
 
 // SHOW -- READ -- GET
-app.get('/captainsLog/:id', (req, res) => {
+app.get('/logs/:id', (req, res) => {
     Log.findById(req.params.id, (err, foundLog) => {
       if (err) {
         console.error(err)
         res.status(400).send(err)
       } else {
-        res.render('captainsLog/Show', {
+        res.render('logs/Show', {
           Log: foundLog
         })
       }
