@@ -13,7 +13,7 @@ class Index extends React.Component {
         </nav>
         <ul>
           {
-                        log.map((fruit) => {
+                        log.map((log) => {
                           const { name, entry, shipIsBroken, _id } = log
                           return (
                             <li key={_id}>
