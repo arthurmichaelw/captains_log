@@ -9,7 +9,7 @@ class Show extends React.Component {
     return (
       <Default title={`${capName} Show Page`} log={this.props.log}>
         <p>{capName} /: {entry} and {shipIsBroken ? 'The Ship is Broken' : 'The Ship is not Broken'}</p>
-        <a href={`/logs/Index`}></a>
+        <a href='/logs/Index' />
       </Default>
     )
   }

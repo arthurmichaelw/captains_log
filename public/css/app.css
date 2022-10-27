@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body {
+  background-color: #e32727;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  width: 100%;
+  min-height: 100vh;
+}
+
+nav {
+  background-color: #fcd60f;
+  padding: 25px;
+  padding-left: 45px;
+}
+
+h1 {
+    font-family: 'Alegreya', serif;
+    color: #ffffff;
+    font-size: 2.5vw;
+}
+
+a {
+    padding: 10px;
+    font-size: 2vw;
+    color: #175994;
+    font-family: 'Alegreya', serif;
+    text-decoration: none;
+    
+}
+
+a:hover {
+    color: #ffffff;
+    text-shadow: -1px 1px 0 #175994,
+                 1px 1px 0 #175994,
+                 1px -1px 0 #175994,
+                 -1px -1px 0 #175994;
+}
+
+.body {
+    padding: 45px;
+}
+
+li {
+    padding: 25px;
+}
+
+li a {
+    padding: 25px;
+}
+
+p {
+    padding: 0;
+}
+
+form {
+    border: solid 3px #175994;
+    border-radius: 15px;
+    padding: 45px;
+    color: #175994;
+    background-color: #ffffff;
+    font-weight: bolder;
+    font-size: 1.5vw;
+    padding-bottom: 25px;
+}
+
+input[type="text"] {
+    position: relative;
+    width: 7em;
+    height: larger;
+    border: 1px solid gray;
+    /* Adjusts the position of the checkboxes on the text baseline */
+    vertical-align: -2px;
+    font-size: 1.5vw;
+  }
+
+  input[type="textarea"] {
+    position: relative;
+    width: 7em;
+    height: 1em;
+    border: 1px solid gray;
+    /* Adjusts the position of the checkboxes on the text baseline */
+    vertical-align: -2px;
+    font-size: 1.5vw;
+  }
+
+  input[type="checkbox"] {
+    position: relative;
+    width: 1em;
+    height: 1em;
+    border: 1px solid gray;
+    /* Adjusts the position of the checkboxes on the text baseline */
+    vertical-align: -2px;
+    font-size: 1.5vw;
+  }

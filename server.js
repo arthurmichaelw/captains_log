@@ -31,8 +31,17 @@ mongoose.connection.once('open', () => {
 /* Start Routes */
 
 // INDEX -- READ -- GET
-app.get('/logs/', (req, res) => {
-  res.render('logs/Index')
+app.get('/logs', (req, res) => {
+  Log.find({}, (err, foundLogs) => {
+    if (err) {
+      console.error(err)
+      res.status(400).send(err)
+    } else {
+      res.render('logs/Index', {
+        logs: foundLogs
+      })
+    }
+  })
 })
 
 // NEW
@@ -42,16 +51,15 @@ app.get('/logs/new', (req, res) => {
 
 // DELETE
 app.delete('/logs/:id', (req, res) => {
-    Log.findByIdAndDelete(req.params.id, (err, deletedLog) => {
-      if (err) {
-        console.error(err)
-        res.status(400).send(err)
-      } else {
-        res.redirect('/logs')
-      }
-    })
+  Log.findByIdAndDelete(req.params.id, (err, deletedLog) => {
+    if (err) {
+      console.error(err)
+      res.status(400).send(err)
+    } else {
+      res.redirect('/logs')
+    }
   })
-
+})
 
 // UPDATE
 app.put('/logs/:id', (req, res) => {
@@ -81,31 +89,31 @@ app.post('/logs', (req, res) => {
 
 // EDIT
 app.get('/logs/:id/edit', (req, res) => {
-    Log.findById(req.params.id, (err, foundFruit) => {
-      if (err) {
-        console.error(err)
-        res.status(400).send(err)
-      } else {
-        res.render('logs/Edit', {
-          Log: foundLog
-        })
-      }
-    })
+  Log.findById(req.params.id, (err, foundLog) => {
+    if (err) {
+      console.error(err)
+      res.status(400).send(err)
+    } else {
+      res.render('logs/Edit', {
+        Log: foundLog
+      })
+    }
   })
+})
 
 // SHOW -- READ -- GET
 app.get('/logs/:id', (req, res) => {
-    Log.findById(req.params.id, (err, foundLog) => {
-      if (err) {
-        console.error(err)
-        res.status(400).send(err)
-      } else {
-        res.render('logs/Show', {
-          Log: foundLog
-        })
-      }
-    })
+  Log.findById(req.params.id, (err, foundLog) => {
+    if (err) {
+      console.error(err)
+      res.status(400).send(err)
+    } else {
+      res.render('logs/Show', {
+        Log: foundLog
+      })
+    }
   })
+})
 
 /* End Routes */
 
