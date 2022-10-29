@@ -13,8 +13,8 @@ class Default extends React.Component {
           <nav>
             <a href='/logs'>Go to Home Page For Cap'n Logs</a>
             <a href='/logs/new'>Create a New Log, Cap'n</a>
-            {fruit ? <a href={`/logs/${log._id}/edit`}> {log.name} Edit Page </a> : ''}
-            {fruit ? <a href={`/logs/${log._id}`}>{log.name} Show Page</a> : ''}
+            {log ? <a href={`/logs/${log._id}/edit`}> {log.name} Edit Page </a> : ''}
+            {log ? <a href={`/logs/${log._id}`}>{log.name} Show Page</a> : ''}
           </nav>
           <h1>
             {title}
